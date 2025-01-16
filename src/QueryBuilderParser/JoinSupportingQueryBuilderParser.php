@@ -2,9 +2,11 @@
 
 namespace timgws;
 
-use Illuminate\Database\Query\Builder;
 use stdClass;
 use timgws\QBParseException;
+
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Database\Query\Builder as QueryBuilder;
 
 class JoinSupportingQueryBuilderParser extends QueryBuilderParser
 {
@@ -50,7 +52,7 @@ class JoinSupportingQueryBuilderParser extends QueryBuilderParser
      *
      * @return Builder
      */
-    protected function makeQuery(Builder|\Illuminate\Database\Eloquent\Builder $query, stdClass $rule, $queryCondition = 'AND')
+    protected function makeQuery(EloquentBuilder|QueryBuilder $query, stdClass $rule, $queryCondition = 'AND')
     {
         /*
          * Ensure that the value is correct for the rule, return query on exception
