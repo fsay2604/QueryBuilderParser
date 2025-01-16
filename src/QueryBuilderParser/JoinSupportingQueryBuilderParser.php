@@ -50,7 +50,7 @@ class JoinSupportingQueryBuilderParser extends QueryBuilderParser
      *
      * @return Builder
      */
-    protected function makeQuery(Builder $query, stdClass $rule, $queryCondition = 'AND')
+    protected function makeQuery(Builder|\Illuminate\Database\Eloquent\Builder $query, stdClass $rule, $queryCondition = 'AND')
     {
         /*
          * Ensure that the value is correct for the rule, return query on exception
